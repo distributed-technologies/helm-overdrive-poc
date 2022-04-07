@@ -1,0 +1,37 @@
+server:
+  configEnabled: true
+  config:
+    url: https://argocd.{{ .Values.domain }}
+    admin.enabled: 'true'
+    configManagementPlugins: |
+      - name: helm-overdrive
+        generate:
+          command: ["helm-overdrive"]
+          args: ["template", "-c", "./helm-overdrive.yaml" ]
+      - name: helm-overdrive-app-discover
+        generate:
+          command: ["helm-overdrive-app-discover"]
+          args: ["template", "-f", "./base" ]
+repoServer:
+  volumes:
+    - name: custom-tools
+      emptyDir: {}
+  initContainers:
+    - name: download-helm-overdrive
+      image: alpine:3.8
+      command: [sh, -c]
+      args:
+        - wget -qO- https://github.com/distributed-technologies/helm-overdrive/releases/download/0.0.11/helm-overdrive.linux-amd64.tar.gz | tar -xvzf - &&
+          mv helm-overdrive /custom-tools/helm-overdrive &&
+          wget -qO- https://github.com/distributed-technologies/helm-overdrive-app-discover/releases/download/0.0.3/helm-overdrive-app-discover.linux-amd64.tar.gz | tar -xvzf - &&
+          mv helm-overdrive-app-discover /custom-tools/helm-overdrive-app-discover &&
+      volumeMounts:
+      - mountPath: /custom-tools
+        name: custom-tools
+  volumeMounts:
+    - mountPath: /usr/local/bin/helm-overdrive
+      name: custom-tools
+      subPath: helm-overdrive
+    - mountPath: /usr/local/bin/helm-overdrive-app-discover
+      name: custom-tools
+      subPath: helm-overdrive-app-discover
