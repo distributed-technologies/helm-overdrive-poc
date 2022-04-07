@@ -1,6 +1,7 @@
 apiVersion: argocd-discover/v1alpha1
 name: argocd
 namespace: argocd
+createNamespace: true
 project: default
 source:
   helm_repo: https://argoproj.github.io/argo-helm

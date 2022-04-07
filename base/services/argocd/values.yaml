@@ -7,11 +7,11 @@ server:
       - name: helm-overdrive
         generate:
           command: ["helm-overdrive"]
-          args: ["template", "-c", "./helm-overdrive.yaml" ]
+          args: ["template", "-c", "helm-overdrive.yaml" ]
       - name: helm-overdrive-app-discover
         generate:
           command: ["helm-overdrive-app-discover"]
-          args: ["discover", "--folder", "./base" ]
+          args: ["discover", "--folder", "base" ]
 repoServer:
   volumes:
     - name: custom-tools
@@ -21,9 +21,9 @@ repoServer:
       image: alpine:3.8
       command: [sh, -c]
       args:
-        - wget -qO- https://github.com/distributed-technologies/helm-overdrive/releases/download/0.0.11/helm-overdrive.linux-amd64.tar.gz | tar -xvzf - &&
+        - wget -qO- https://github.com/distributed-technologies/helm-overdrive/releases/download/0.0.12/helm-overdrive.linux-amd64.tar.gz | tar -xvzf - &&
           mv helm-overdrive /custom-tools/helm-overdrive &&
-          wget -qO- https://github.com/distributed-technologies/helm-overdrive-app-discover/releases/download/0.0.3/helm-overdrive-app-discover.linux-amd64.tar.gz | tar -xvzf - &&
+          wget -qO- https://github.com/distributed-technologies/helm-overdrive-app-discover/releases/download/0.0.7/helm-overdrive-app-discover.linux-amd64.tar.gz | tar -xvzf - &&
           mv helm-overdrive-app-discover /custom-tools/helm-overdrive-app-discover
       volumeMounts:
       - mountPath: /custom-tools
