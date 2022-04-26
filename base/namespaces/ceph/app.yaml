@@ -1,0 +1,9 @@
+apiVersion: argocd-discover/v1alpha1
+name: ceph
+namespace: ceph
+createNamespace: true
+project: default
+source:
+  helm_repo: https://distributed-technologies.github.io/mht-helm-chart-test/
+  chart_name: resource-helper
+  chart_version: 0.1.0

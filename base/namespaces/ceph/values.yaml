@@ -1,0 +1,60 @@
+# # Override the name to this instead of the release name
+nameOverride: ""
+
+# global:
+#   # -- Additional labels to add to all resources
+#   additionalLabels: {}
+#     # app: foo-bar
+
+project:
+  enabled: true
+  # Is appended on the end the the name
+  name: ""
+
+#   annotations: {}
+#     # foo: bar
+#   labels: {}
+#     # hello: world
+#   finalizers: []
+#     # - resources-finalizer.argocd.argoproj.io
+
+#   # https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#the-default-project
+#   spec:
+#     sourceRepos:
+#       - '*'
+#     destinations:
+#       - namespace: '*'
+#         server: '*'
+#     clusterResourceWhitelist:
+#       - group: '*'
+#         kind: '*'
+
+# resourceQuota:
+  # enabled: false
+#   # Is appended on the end the the name
+#   name: resourceQuota
+
+#   annotations: {}
+#     # foo: bar
+#   labels: {}
+#     # hello: world
+
+#   # https://kubernetes.io/docs/concepts/policy/resource-quotas/#compute-resource-quota
+#   spec: {}
+
+# networkPolicy:
+  # enabled: false
+#   # Is appended on the end the the name
+#   name: networkPolicy
+
+#   annotations: {}
+#     # foo: bar
+#   labels: {}
+#     # hello: world
+
+#   # https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-and-all-egress-traffic
+#   spec: {}
+#     # podSelector: {}
+#     # policyTypes:
+#     # - Ingress
+#     # - Egress
