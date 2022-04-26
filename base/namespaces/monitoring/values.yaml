@@ -7,7 +7,7 @@
 #     # app: foo-bar
 
 project:
-  enabled: false
+  enabled: true
   # Is appended on the end the the name
   name: ""
 
@@ -30,7 +30,7 @@ project:
 #         kind: '*'
 
 # resourceQuota:
-#   enabled: false
+  # enabled: false
 #   # Is appended on the end the the name
 #   name: resourceQuota
 
@@ -43,7 +43,7 @@ project:
 #   spec: {}
 
 # networkPolicy:
-#   enabled: true
+  # enabled: false
 #   # Is appended on the end the the name
 #   name: networkPolicy
 
