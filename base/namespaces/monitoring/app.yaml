@@ -6,4 +6,4 @@ project: default
 source:
   helm_repo: https://distributed-technologies.github.io/mht-helm-chart-test/
   chart_name: resource-helper
-  chart_version: 0.1.1
+  chart_version: 0.1.0
