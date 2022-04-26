@@ -1,5 +1,5 @@
 # # Override the name to this instead of the release name
-# nameOverride: hello-world
+nameOverride: ""
 
 # global:
 #   # -- Additional labels to add to all resources
