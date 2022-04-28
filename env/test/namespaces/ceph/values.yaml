@@ -1,0 +1,80 @@
+resourceQuotas:
+  - enabled: true
+    # Is appended on the end the the name
+    name: pods-high
+
+    annotations: {}
+      # foo: bar
+    labels: {}
+      # hello: world
+
+    # https://kubernetes.io/docs/concepts/policy/resource-quotas/#compute-resource-quota
+    spec:
+      hard:
+        cpu: "1000"
+        memory: 200Gi
+        pods: "10"
+      scopeSelector:
+        matchExpressions:
+        - operator : In
+          scopeName: PriorityClass
+          values: ["high"]
+
+  - enabled: true
+    # Is appended on the end the the name
+    name: pods-medium
+
+    annotations: {}
+      # foo: bar
+    labels: {}
+      # hello: world
+
+    # https://kubernetes.io/docs/concepts/policy/resource-quotas/#compute-resource-quota
+    spec:
+      hard:
+        cpu: "10"
+        memory: 20Gi
+        pods: "10"
+      scopeSelector:
+        matchExpressions:
+        - operator : In
+          scopeName: PriorityClass
+          values: ["medium"]
+
+  - enabled: true
+    # Is appended on the end the the name
+    name: pods-low
+
+    annotations: {}
+      # foo: bar
+    labels: {}
+      # hello: world
+
+    # https://kubernetes.io/docs/concepts/policy/resource-quotas/#compute-resource-quota
+    spec:
+      hard:
+        cpu: "5"
+        memory: 10Gi
+        pods: "10"
+      scopeSelector:
+        matchExpressions:
+        - operator : In
+          scopeName: PriorityClass
+          values: ["low"]
+
+networkPolicy:
+  enabled: true
+  # Is appended on the end the the name
+  name: networkPolicy
+
+  annotations: {}
+    # foo: bar
+  labels: {}
+    # hello: world
+
+  # https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-and-all-egress-traffic
+  spec:
+    podSelector: {}
+    policyTypes:
+    - Ingress
+    - Egress
