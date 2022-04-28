@@ -51,7 +51,7 @@ resourceQuotas:
           scopeName: PriorityClass
           values: ["high"]
 
-  - enabled: false
+  - enabled: true
     # Is appended on the end the the name
     name: pods-medium
 
