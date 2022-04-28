@@ -4,4 +4,4 @@ metadata:
   name: mysecret
 type: Opaque
 data:
-  password: <Password>
+  password: {{ printf "%s" "password" | b64enc }}
