@@ -30,7 +30,7 @@ project:
 #         kind: '*'
 
 resourceQuotas:
-  - enabled: true
+  - enabled: false
     # Is appended on the end the the name
     name: pods-high
 
@@ -51,7 +51,7 @@ resourceQuotas:
           scopeName: PriorityClass
           values: ["high"]
 
-  - enabled: true
+  - enabled: false
     # Is appended on the end the the name
     name: pods-medium
 
@@ -72,7 +72,7 @@ resourceQuotas:
           scopeName: PriorityClass
           values: ["medium"]
 
-  - enabled: true
+  - enabled: false
     # Is appended on the end the the name
     name: pods-low
 
