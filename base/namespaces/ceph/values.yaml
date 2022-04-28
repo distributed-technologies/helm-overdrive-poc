@@ -94,7 +94,7 @@ resourceQuotas:
           values: ["low"]
 
 networkPolicy:
-  enabled: true
+  enabled: false
 #   # Is appended on the end the the name
 #   name: networkPolicy
 
@@ -104,8 +104,8 @@ networkPolicy:
 #     # hello: world
 
 #   # https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-and-all-egress-traffic
-  spec:
-    podSelector: {}
-    policyTypes:
-    - Ingress
-    - Egress
+  spec: {}
+    # podSelector: {}
+    # policyTypes:
+    # - Ingress
+    # - Egress
