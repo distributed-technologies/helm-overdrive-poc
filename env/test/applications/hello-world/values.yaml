@@ -1,2 +1,2 @@
-replicaCount: 42
+replicaCount: 1
 ingressDomain: {{ .Values.ingressDomain }}
