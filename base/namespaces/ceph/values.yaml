@@ -72,7 +72,7 @@ resourceQuotas:
           scopeName: PriorityClass
           values: ["medium"]
 
-  - enabled: false
+  - enabled: true
     # Is appended on the end the the name
     name: pods-low
 
