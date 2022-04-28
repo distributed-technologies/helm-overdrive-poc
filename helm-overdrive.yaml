@@ -15,7 +15,7 @@ additional_resources: additional_resources
 # ----------- Only used if multiple environments with overrides -----------
 
 # env_folder, optional! Path of the environment folder you with to deploy
-env_folder: env/test
+# env_folder: env/test
 
 # ----------- Should be specified per application in argocd -----------
 
