@@ -96,7 +96,7 @@ resourceQuotas:
 networkPolicy:
   enabled: false
 #   # Is appended on the end the the name
-#   name: networkPolicy
+#   name: network-policy
 
 #   annotations: {}
 #     # foo: bar
