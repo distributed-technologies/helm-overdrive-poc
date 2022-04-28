@@ -1,4 +1,4 @@
-# # Override the name to this instead of the release name
+# Override the name to this instead of the release name
 nameOverride: ""
 
 # global:

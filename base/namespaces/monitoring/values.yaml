@@ -1,4 +1,4 @@
-# # Override the name to this instead of the release name
+# Override the name to this instead of the release name
 nameOverride: ""
 
 # global:
@@ -29,21 +29,72 @@ project:
 #       - group: '*'
 #         kind: '*'
 
-# resourceQuota:
-  # enabled: false
-#   # Is appended on the end the the name
-#   name: resourceQuota
+resourceQuotas:
+  - enabled: false
+    # Is appended on the end the the name
+    name: pods-high
 
-#   annotations: {}
-#     # foo: bar
-#   labels: {}
-#     # hello: world
+    annotations: {}
+      # foo: bar
+    labels: {}
+      # hello: world
 
-#   # https://kubernetes.io/docs/concepts/policy/resource-quotas/#compute-resource-quota
-#   spec: {}
+    # https://kubernetes.io/docs/concepts/policy/resource-quotas/#compute-resource-quota
+    spec:
+      hard:
+        cpu: "1000"
+        memory: 200Gi
+        pods: "10"
+      scopeSelector:
+        matchExpressions:
+        - operator : In
+          scopeName: PriorityClass
+          values: ["high"]
 
-# networkPolicy:
-  # enabled: false
+  - enabled: false
+    # Is appended on the end the the name
+    name: pods-medium
+
+    annotations: {}
+      # foo: bar
+    labels: {}
+      # hello: world
+
+    # https://kubernetes.io/docs/concepts/policy/resource-quotas/#compute-resource-quota
+    spec:
+      hard:
+        cpu: "10"
+        memory: 20Gi
+        pods: "10"
+      scopeSelector:
+        matchExpressions:
+        - operator : In
+          scopeName: PriorityClass
+          values: ["medium"]
+
+  - enabled: false
+    # Is appended on the end the the name
+    name: pods-low
+
+    annotations: {}
+      # foo: bar
+    labels: {}
+      # hello: world
+
+    # https://kubernetes.io/docs/concepts/policy/resource-quotas/#compute-resource-quota
+    spec:
+      hard:
+        cpu: "5"
+        memory: 10Gi
+        pods: "10"
+      scopeSelector:
+        matchExpressions:
+        - operator : In
+          scopeName: PriorityClass
+          values: ["low"]
+
+networkPolicy:
+  enabled: false
 #   # Is appended on the end the the name
 #   name: networkPolicy
 
@@ -53,8 +104,8 @@ project:
 #     # hello: world
 
 #   # https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-and-all-egress-traffic
-#   spec: {}
-#     # podSelector: {}
-#     # policyTypes:
-#     # - Ingress
-#     # - Egress
+  spec: {}
+    # podSelector: {}
+    # policyTypes:
+    # - Ingress
+    # - Egress
