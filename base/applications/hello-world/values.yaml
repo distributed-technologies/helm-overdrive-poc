@@ -1,2 +1,2 @@
-replicaCount: 3
-ingressDomain: {{ .Values.ingressDomain }}
+replicaCount: 1
+ingressDomain: {{ .Values.domain }}
