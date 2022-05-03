@@ -21,9 +21,9 @@ repoServer:
       image: alpine:3.8
       command: [sh, -c]
       args:
-        - wget -qO- https://github.com/distributed-technologies/helm-overdrive/releases/download/v0.0.4/helm-overdrive.linux-amd64.tar.gz | tar -xvzf - &&
+        - wget -qO- https://github.com/distributed-technologies/helm-overdrive/releases/download/v0.0.5/helm-overdrive.linux-amd64.tar.gz | tar -xvzf - &&
           mv helm-overdrive /custom-tools/helm-overdrive &&
-          wget -qO- https://github.com/distributed-technologies/helm-overdrive-app-discover/releases/download/v0.0.1/helm-overdrive-app-discover.linux-amd64.tar.gz | tar -xvzf - &&
+          wget -qO- https://github.com/distributed-technologies/helm-overdrive-app-discover/releases/download/v0.0.2/helm-overdrive-app-discover.linux-amd64.tar.gz | tar -xvzf - &&
           mv helm-overdrive-app-discover /custom-tools/helm-overdrive-app-discover
       volumeMounts:
       - mountPath: /custom-tools
